@@ -49,7 +49,7 @@ export async function GET(request: Request) {
           as: 'category',
         },
       },
-      { $unwind: { path: '$category', preserveNullAndEmpty: true } },
+      { $unwind: { path: '$category', preserveNullAndEmptyArrays: true } },
       { $project: { password: 0 } },
     ])
 

@@ -1,3 +1,4 @@
+import mongoose from 'mongoose'
 import { connectDB } from '@/lib/mongodb'
 import User from '@/lib/models/User'
 import '@/lib/models/Professional'
@@ -51,7 +52,7 @@ export async function POST(request: Request) {
       user.favorites.splice(idx, 1)
       added = false
     } else {
-      user.favorites.push(new (require('mongoose').Types.ObjectId)(professionalId))
+      user.favorites.push(new mongoose.Types.ObjectId(professionalId))
       added = true
     }
     await user.save()
