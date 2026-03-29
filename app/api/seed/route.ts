@@ -22,6 +22,6 @@ export async function POST() {
     return Response.json({ message: 'Catégories insérées', count: categories.length })
   } catch (err) {
     console.error(err)
-    return Response.json({ error: 'Erreur serveur' }, { status: 500 })
+    return Response.json({ error: 'Erreur serveur', detail: String(err) }, { status: 500 })
   }
 }
